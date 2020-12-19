@@ -1,12 +1,26 @@
 <template>
-<div>
-  ask
-</div>
+  <div>
+    <div v-bind:key="item" v-for="item in ask">{{ item.title }}</div>
+  </div>
 </template>
 
 <script>
+import {fetchAskList} from '@/api/index'
+
 export default {
-  name: "AskView"
+  name: "AskView",
+  data() {
+    return {
+      ask: []
+    }
+  },
+  created() {
+    fetchAskList()
+        .then(response =>
+            this.ask = response.data)
+        .catch(error =>
+            console.log(error))
+  }
 }
 </script>
 

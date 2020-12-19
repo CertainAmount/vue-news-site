@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { fetchNewsList } from '@/api/index';
 
 export default {
   name: "NewsView",
@@ -15,11 +15,11 @@ export default {
     }
   },
   created() {
-    let vm = this;
-    axios.get('https://api.hnpwa.com/v0/news/1.json')
-    .then(response =>
-        vm.users = response.data)
-    .catch(err => console.log(err))
+    fetchNewsList()
+        .then(response =>
+            this.users = response.data)
+        .catch(err =>
+            console.log(err))
   }
 }
 </script>
