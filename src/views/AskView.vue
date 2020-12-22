@@ -16,9 +16,6 @@ export default {
     ...mapGetters({
       fetchedAsk: 'fetchedAsk'
     })
-  },
-  created() {
-    this.$store.dispatch("FETCH_ASK")
   }
 }
 </script>
