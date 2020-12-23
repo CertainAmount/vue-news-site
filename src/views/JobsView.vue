@@ -16,6 +16,9 @@ export default {
     ...mapGetters({
       fetchedJobs: 'fetchedJobs',
     })
+  },
+  created() {
+    this.$store.dispatch('FETCH_JOBS')
   }
 }
 </script>

@@ -18,6 +18,9 @@ export default {
     ...mapGetters({
       fetchedNews: 'fetchedNews'
     })
+  },
+  created() {
+    this.$store.dispatch('FETCH_NEWS')
   }
 }
 </script>
